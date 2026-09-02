@@ -2,6 +2,14 @@ Release Notes
 =============
 
 
+3.1.2
+-----
+
+* Add support for Django 6.1 and Wagtail 8.
+* Publish the fork as ``cjkcms-seo`` while retaining the ``wagtailseo`` Python
+  package and Django app name for drop-in compatibility.
+
+
 3.1.1
 -----
 

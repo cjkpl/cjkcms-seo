@@ -1,7 +1,7 @@
 # -- PACKAGE INFO ---------------------
 
 [build-system]
-requires = ["setuptools >= 65.0"]
+requires = ["setuptools >= 77.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -10,13 +10,14 @@ authors = [
 ]
 classifiers = [
     "Framework :: Django",
+    "Framework :: Django :: 6.1",
     "Framework :: Wagtail",
     "Framework :: Wagtail :: 4",
     "Framework :: Wagtail :: 5",
     "Framework :: Wagtail :: 6",
     "Framework :: Wagtail :: 7",
+    "Framework :: Wagtail :: 8",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: BSD License",
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
@@ -24,22 +25,26 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP :: Site Management",
 ]
 dependencies = [
-    "wagtail>=4.0,<8.0",
+    "wagtail>=4.0,<9.0",
 ]
 description = "Search engine and social media optimization for Wagtail."
 dynamic = ["version"]
-license = {file = "LICENSE.txt"}
-name = "wagtail-seo"
+license = "BSD-3-Clause"
+license-files = ["LICENSE.txt"]
+name = "cjkcms-seo"
 readme = "README.md"
 requires-python = ">=3.9"
 
 [project.urls]
-Source = "https://github.com/coderedcorp/wagtail-seo"
+Source = "https://github.com/cjkpl/cjkcms-seo"
 Documentation = "https://docs.coderedcorp.com/wagtail-seo/"
 Changelog = "https://docs.coderedcorp.com/wagtail-seo/releases.html"
 
 [tool.setuptools]
-packages = ["wagtailseo"]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["wagtailseo*"]
 
 [tool.setuptools.dynamic]
 version = {attr = "wagtailseo.__version__"}
@@ -67,6 +72,7 @@ exclude = [
 DJANGO_SETTINGS_MODULE = "testproject.settings"
 junit_family = "xunit2"
 addopts = "--cov wagtailseo --cov-report html --cov-report xml --junitxml junit/test-results.xml"
+pythonpath = [".", "testproject"]
 python_files = "tests.py test_*.py"
 
 [tool.ruff]

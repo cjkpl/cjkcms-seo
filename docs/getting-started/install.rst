@@ -5,9 +5,11 @@ Install from pip:
 
 .. code-block:: console
 
-    $ pip install wagtail-seo
+    $ pip install cjkcms-seo
 
-Next, add to your INSTALLED_APPS in the Django settings file.
+The fork retains the original ``wagtailseo`` Python package and Django app name
+as a drop-in replacement. Next, add it to ``INSTALLED_APPS`` in the Django
+settings file.
 Wagtail SEO also requires the Wagtail Site Settings app and context processor.
 
 .. code-block:: python

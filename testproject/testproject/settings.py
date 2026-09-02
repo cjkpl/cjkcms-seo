@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+import django
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -140,4 +142,11 @@ SECRET_KEY = "4n5y9*ny(o(i5e^f!9=5yc8ie(z&0#^=@3*4pohw$8iv!tkcmr"
 # SECURITY WARNING: define the correct hosts in production!
 ALLOWED_HOSTS = ["*"]
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+if django.VERSION >= (6, 1):
+    MAILERS = {
+        "default": {
+            "BACKEND": "django.core.mail.backends.console.EmailBackend",
+        }
+    }
+else:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

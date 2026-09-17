@@ -371,7 +371,7 @@ class SeoMixin(SeoMetaFields, Page):
         # Render a normal preview, so we can parse some stuff from the HTML.
         pre = self.serve_preview(request, self.default_preview_mode)
         pre.render()
-        soup = BeautifulSoup(pre.content)
+        soup = BeautifulSoup(pre.content, features="html.parser")
         icon_link = soup.find("link", rel="icon")
         if icon_link and hasattr(icon_link, "get"):
             icon_href = icon_link.get("href")  # type: ignore

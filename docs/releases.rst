@@ -2,6 +2,14 @@ Release Notes
 =============
 
 
+3.2.0
+-----
+
+* Add support for Wagtail 8.
+
+* Make HTML parser selection deterministic in the SEO preview.
+
+
 3.1.1
 -----
 
